@@ -6,8 +6,8 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.0-SNAPSHOT"
-description = ""
+version = "1.1.0"
+description = "Hangeul"
 
 repositories {
 	maven {
@@ -37,7 +37,7 @@ tasks.jar {
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
 				"Implementation-Vendor" to "ELEX co.,pte.",
-				"Automatic-Module-Name" to "${project.group}.${project.name}"
+				"Automatic-Module-Name" to "com.elex_project.haetae"
 		))
 	}
 }
@@ -69,19 +69,13 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				// todo
 				name.set(project.name)
 				description.set(project.description)
-				url.set("https://")
-				properties.set(mapOf(
-						"myProp" to "value",
-						"prop.with.dots" to "anotherValue"
-				))
+				url.set("https://github.com/elex-project/haetae")
 				licenses {
 					license {
-						// todo
-						name.set("licenseName")
-						url.set("licenseUrl")
+						name.set("BSD 3-Clause License")
+						url.set("https://github.com/elex-project/haetae/blob/main/LICENSE")
 					}
 				}
 				developers {
@@ -92,10 +86,9 @@ publishing {
 					}
 				}
 				scm {
-					// todo
-					connection.set("scm:git:https://github.com/my-library.git")
-					developerConnection.set("scm:git:https://github.com/my-library.git")
-					url.set("https://github.com/my-library/")
+					connection.set("scm:git:https://github.com/elex-project/haetae.git")
+					developerConnection.set("scm:git:https://github.com/elex-project/haetae.git")
+					url.set("https://github.com/elex-project/haetae")
 				}
 			}
 		}
@@ -113,9 +106,9 @@ publishing {
 				password = project.findProperty("repo.password") as String
 			}
 		}
-		maven { //todo
+		maven {
 			name = "mavenGithub"
-			url = uri("https://maven.pkg.github.com/elex-project/tmpl-java-library")
+			url = uri("https://maven.pkg.github.com/elex-project/haetae")
 			credentials {
 				username = project.findProperty("github.username") as String
 				password = project.findProperty("github.token") as String
