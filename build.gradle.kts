@@ -6,8 +6,8 @@ plugins {
 }
 
 group = "com.elex-project"
-version = "1.1.0"
-description = "Hangeul"
+version = "1.1.1"
+description = "Manipulating Unicode Hangeul Character"
 
 repositories {
 	maven {
@@ -32,7 +32,7 @@ configurations {
 }
 
 tasks.jar {
-	manifest { // todo
+	manifest {
 		attributes(mapOf(
 				"Implementation-Title" to project.name,
 				"Implementation-Version" to project.version,
@@ -69,7 +69,7 @@ publishing {
 		create<MavenPublication>("mavenJava") {
 			from(components["java"])
 			pom {
-				name.set(project.name)
+				name.set("Hangeul")
 				description.set(project.description)
 				url.set("https://github.com/elex-project/haetae")
 				licenses {
@@ -130,4 +130,3 @@ dependencies {
 	testImplementation("org.junit.jupiter:junit-jupiter:5.7.0")
 	testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
 }
-
